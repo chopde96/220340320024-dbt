@@ -1,0 +1,47 @@
+	use exam;
+create table dept (
+deptno int(2),
+dname varchar(15),
+loc varchar(10)
+);
+drop table dept;
+select * from dept;
+insert into dept values (10, 'accounting','new york'),
+(20,'research','dallas'),
+(30,'sales','chicago'),
+(40,'operations','boston');
+
+2.
+create table emp (
+empno int(4),
+ename varchar(10),
+job varchar(9),
+hireddate date,
+sal float(7,2),
+comm float(7,2),
+deptno int(2)
+);
+drop table emp;
+insert into emp values (7839,'king','manager','1991-11-17',5000,null,10),
+(7698,'blake','clerk','1981-05-01',2850,null,30),
+(7782,'clark','manager','1981-06-09',2450,null,10),
+(7566,'jones','clerk','1981-04-02',2975,null,20),
+(7654,'martin','salesman','1981-09-28',1250,1400,30),
+(7499,'allen','salesman','1981-02-20',1600,300,30);
+select * from emp;
+3;
+select * from emp where sal between 2500 and 5000;
+4;
+select ename from emp  ename order by ename desc;
+5;
+select lower(job) from emp;
+6;
+select ename,length(ename) from emp;
+7;
+select deptno,count(*) from emp group by deptno;
+8;
+select e.ename,d.dname from dept d inner join emp e where d.deptno=e.deptno;
+9;
+select ename,position('AR'IN ename) from emp;
+10;
+select sal,(0.2*sal) as HRA from emp;
