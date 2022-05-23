@@ -1,0 +1,33 @@
+
+
+section 2 
+q1
+DELIMITER &&  
+CREATE PROCEDURE PROC1 (IN substr varchar(20), IN str varchar(20))  
+BEGIN 
+    IF INSTR(str,substr) > 0 THEN  
+        INSERT INTO tempp (message) values ("string1 exists in string2."); 
+    ELSE
+        INSERT INTO tempp (message) values ("string1 does not exists in string2.");  
+    END IF;  
+END &&  
+DELIMITER ;
+q2
+DELIMITER $$  
+CREATE FUNCTION FUNC1(  
+    a int
+    b int
+    c int
+)   
+RETURNS TINYINT  
+DETERMINISTIC  
+BEGIN  
+    DECLARE ret INT;  
+    IF (a + b > c AND a + c > b AND b + c > a) THEN  
+        SET ret = 1;  
+    ELSE
+        SET ret = 0;  
+    END IF;  
+    RETURN (ret);  
+END$$  
+DELIMITER;
